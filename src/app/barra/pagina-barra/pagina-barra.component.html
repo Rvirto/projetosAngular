@@ -1,0 +1,117 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark"
+ style="background-color: rgba(9, 87, 110, 0.856);">
+
+  <div>
+
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+  aria-expanded="false" aria-label="Toggle navigation"
+  (click)="isCollapsed = !isCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <div class="imagem" style="cursor: pointer;"
+            [routerLink]="['/']"></div>
+          </li>
+      <li class="nav-item active">
+        <a class="nav-link" style="cursor: pointer;"
+        [routerLink]="['/']" ><i class="fa fa-home"></i> Início <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" style="cursor: pointer;" *ngIf="loginService.temPermissao('COMUM')"
+        [routerLink]="['/dashboardFuncionario']" ><i class="fa fa-pie-chart"></i> Meu Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link" style="cursor: pointer;" *ngIf="loginService.temPermissao('GESTOR')"
+          [routerLink]="['/dashboardGestor']" ><i class="fa fa-pie-chart"></i> Meu Dashboard <span class="sr-only">(current)</span></a>
+        </li>
+      <li class="nav-item active">
+          <a class="nav-link" style="cursor: pointer;" *ngIf="loginService.temPermissao('COMUM')"
+          [routerLink]="['/meusApontamentos']"><i class="fa fa-list"></i>
+           Meus Apontamentos <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" style="cursor: pointer;"
+            [routerLink]="['/meusDados']" *ngIf="loginService.taLogado"><i class="fa fa-user-circle"></i>
+             Meus Dados <span class="sr-only">(current)</span></a>
+          </li>
+      <li class="nav-item active">
+        <a class="nav-link" style="cursor: pointer;" (click)="abrirMenu()"
+        *ngIf="loginService.temPermissao('GESTOR')">
+         <i class="fa fa-database"></i> Cadastros <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link" style="cursor: pointer;" (click)="abrirMenuRelatorio()"
+          *ngIf="loginService.temPermissao('GESTOR')">
+           <i class="fa fa-list-alt"></i> Relatórios <span class="sr-only">(current)</span></a>
+        </li>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <div *ngIf="loginService.taLogado">
+          <div style="color: white;margin-right: 10px;">
+            Olá, {{ loginService.jwtPayLoad.nome }}</div>
+      </div>
+      <div *ngIf="!loginService.taLogado">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit" [routerLink]="['/login']">
+            Entrar <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+      </div>
+      <div *ngIf="loginService.taLogado">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit" (click)="fazerLogout()">
+            Sair <i class="fa fa-sign-out" aria-hidden="true"></i></button>
+      </div>
+    </form>
+  </div>
+
+</nav>
+
+<p-sidebar [(visible)]="menu" [baseZIndex]="10000">
+  <h1 class="text-center">Cadastros</h1>
+  <div class="ui-sm-12 ui-md-12 ui-g-12">
+<div class="ui-sm-12 ui-md-12 ui-g-12">
+  <a [routerLink]="['/cadastroFuncionario']"><button class="btn btn-outline-primary btn-lg btn-block">
+      <i class="fa fa-users"></i> Funcionários </button></a>
+</div>
+<div class="ui-sm-12 ui-md-12 ui-g-12">
+  <a (click)="abrirDialog()"><button class="btn btn-outline-primary btn-lg btn-block">
+      <i class="fa fa-copy"></i>  Atividades </button></a>
+</div>
+</div>
+</p-sidebar>
+
+<p-sidebar [(visible)]="menuRelatorio" [baseZIndex]="10000">
+    <h1 class="text-center">Relatório</h1>
+    <div class="ui-sm-12 ui-md-12 ui-g-12">
+    <a [routerLink]="['/relatorioFuncionario']" routerLinkActive="router-link-active" ><button class="btn btn-outline-primary btn-lg btn-block">
+        <i class="fa fa-users"></i> Relatório de Funcionários </button></a>
+    </div>
+    <div class="ui-sm-12 ui-md-12 ui-g-12">
+    <a [routerLink]="['/apontamentos']"><button class="btn btn-outline-primary btn-lg btn-block">
+      <i class="fa fa-list"></i> Relatório de Apontamentos </button></a>
+  </div>
+  <div class="ui-sm-12 ui-md-12 ui-g-12">
+      <a [routerLink]="['/relatorioAtividades']"><button class="btn btn-outline-primary btn-lg btn-block">
+      <i class="fa fa-copy"></i> Relatório de Atividades </button></a>
+    </div>
+  </p-sidebar>
+
+  <p-dialog header="Cadastrar Nova Atividade" [(visible)]="abrirDialogAtividade" [responsive]="true">
+      <div class="ui-g-12 ui-fluid">
+          <label><h5>Atividade</h5></label><br>
+          <input pInputText type="text" name="atividade"
+          [(ngModel)]="atividade.descricao">
+         </div>
+
+         <div class="ui-g-12">
+           <button class="btn btn-success" (click)="cadastrarAtividade()">
+             <i class="fa fa-check"></i> Cadastrar</button>
+             <button class="btn btn-danger" (click)="fecharDialog()">
+                <i class="fa fa-remove"></i> Cancelar</button>
+         </div>
+         </p-dialog>
+

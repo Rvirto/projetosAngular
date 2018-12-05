@@ -1,0 +1,8 @@
+.imagem{
+    position: unset;
+    width: 100px;
+    height:40px;
+    background:url(../../../assets/LogoTotvs.png);
+    background-size: cover;
+    margin-right:15px;
+}

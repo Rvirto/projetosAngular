@@ -1,0 +1,31 @@
+<div class="container">
+
+  <div class="ui-g-12">
+    <h2 class="text-center"><b>Meus Dados</b></h2>
+  </div>
+
+  <div class="ui-g-12">
+      <div class="ui-sm-12 ui-md-9 ui-g-9 ui-fluid">
+          <label><h5>Nome</h5></label>
+          <input pInputText type="text" name="nome"
+          [(ngModel)]="funcionario.nome">
+        </div>
+
+        <div class="ui-sm-12 ui-md-9 ui-g-9 ui-fluid">
+            <label><h5>Senha Atual</h5></label>
+            <input pPassword type="password" name="nome"
+            [(ngModel)]="funcionario.senha">
+          </div>
+
+          <div class="ui-sm-12 ui-md-9 ui-g-9 ui-fluid">
+              <label><h5>Confirme sua Senha Para Atualizar os Dados</h5></label>
+              <input pPassword type="password" name="nome"
+              [(ngModel)]="senha">
+            </div>
+
+            <div class="ui-g-12">
+              <button class="btn btn-success" (click)="atualizarDados()">
+                <i class="fa fa-check"></i> Atualizar Dados</button>
+            </div>
+  </div>
+</div>

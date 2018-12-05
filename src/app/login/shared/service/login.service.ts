@@ -54,6 +54,7 @@ export class LoginService {
 
   public limparAccesToken() {
     localStorage.removeItem('token');
+    this.taLogado = false;
     this.jwtPayLoad = null;
   }
 
@@ -62,5 +63,14 @@ export class LoginService {
     headers.append('Content-Type', 'application/json');
     return this.http.post(`${this.funcionariosURL}`,  { headers }).toPromise()
     .then(response => response.json());
+  }
+
+  public temQualquerPermissao(roles): boolean {
+    for (const role of roles) {
+      if (this.temPermissao(role)) {
+        return true;
+      }
+    }
+    return false;
   }
 }

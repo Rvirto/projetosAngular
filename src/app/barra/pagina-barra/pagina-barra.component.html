@@ -31,7 +31,7 @@
           Meus Apontamentos <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" style="cursor: pointer;" [routerLink]="['/meusDados']" *ngIf="loginService.taLogado"><i
+        <a class="nav-link" style="cursor: pointer;" *ngIf="loginService.taLogado" [routerLink]="['/meusDados']"><i
             class="fa fa-user-circle"></i>
           Meus Dados <span class="sr-only">(current)</span></a>
       </li>

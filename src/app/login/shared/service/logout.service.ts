@@ -15,8 +15,6 @@ export class LogoutService {
   public logout() {
     return this.http.delete(`${this.logoutURL}`, {withCredentials: true})
     .toPromise()
-    .then(() => {
-      this.loginService.limparAccesToken();
-    });
+    .then(() => null);
   }
 }

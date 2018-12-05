@@ -1,7 +1,7 @@
 import { LoginService } from './../../login/shared/service/login.service';
 import { ToastyService } from 'ng2-toasty';
 import { FuncionarioService } from './../shared/service/funcionario.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AtividadeService } from '../../atividades/shared/service/atividade.service';
 import 'rxjs/add/operator/toPromise';
 
@@ -46,20 +46,20 @@ export class InicialFuncionarioComponent implements OnInit {
   }
 
   public buscarMeusApontamentos(): void {
-    this.funcionarioService.buscarMeusApontamentos(this.loginService.jwtPayLoad.idFun)
-    .then(response => {
-      this.apontamentos = response;
-    })
-    .then(() => {
-      this.contarHoras();
-    })
-    .then(() => {
-      this.montarGrafico();
-    })
-    .catch(() => {
-      this.toastyService.clearAll();
-      this.toastyService.error('Problemas técnicos ao buscar seus Apontamentos!');
-    });
+      this.funcionarioService.buscarMeusApontamentos(this.loginService.jwtPayLoad.idFun)
+      .then(response => {
+        this.apontamentos = response;
+      })
+      .then(() => {
+        this.contarHoras();
+      })
+      .then(() => {
+        this.montarGrafico();
+      })
+      .catch(() => {
+        this.toastyService.clearAll();
+        this.toastyService.error('Problemas técnicos ao buscar seus Apontamentos!');
+      });
   }
 
   public contarHoras(): void {

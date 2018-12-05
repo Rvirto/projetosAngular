@@ -4,7 +4,13 @@
     <h2 class="text-center"><b>Dashboard Administrativo</b></h2>
   </div>
 
-  <div class="ui-g-12">
+  <div class="ui-g-6">
+  <h4 class="text-center"><b> Gráfico de Média das Horas</b></h4>
       <p-chart type="doughnut" [data]="dados"></p-chart>
   </div>
+
+  <div class="ui-g-6">
+   <h4 class="text-center"><b>Gráfico Total de Horas</b></h4>
+    <p-chart type="polarArea" [data]="dadosT"></p-chart>
+</div>
 </div>

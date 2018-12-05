@@ -12,22 +12,33 @@ import { CadastroFuncionarioComponent } from './funcionario/cadastro-funcionario
 import { RelatorioFuncionariosComponent } from './funcionario/relatorio-funcionarios/relatorio-funcionarios.component';
 import { RelatorioAtividadesComponent } from './atividades/relatorio-atividades/relatorio-atividades.component';
 import { DetalhesFuncionarioComponent } from './funcionario/detalhes-funcionario/detalhes-funcionario.component';
+import { AuthGuard } from './login/auth.guard';
 
 
 const routes: Routes = [
 
   {path: '', component: PaginaInicialComponent},
   {path: 'login', component: InicialLoginComponent},
-  {path: 'meusApontamentos', component: MeusApontamentosComponent},
-  {path: 'dashboardFuncionario', component: InicialFuncionarioComponent},
-  {path: 'meusDados', component: MeusDadosComponent},
-  {path: 'dashboardGestor', component: InicialGestorComponent},
-  {path: 'apontamentos', component: ApontamentosGestorComponent},
-  {path: 'detalhesApontamento/:id', component: DetalhesApontamentoComponent},
-  {path: 'cadastroFuncionario', component: CadastroFuncionarioComponent},
-  {path: 'relatorioFuncionario', component: RelatorioFuncionariosComponent},
-  {path: 'relatorioAtividades', component: RelatorioAtividadesComponent},
-  {path: 'detalhesFuncionario/:id', component: DetalhesFuncionarioComponent}
+  {path: 'meusApontamentos', component: MeusApontamentosComponent,
+   canActivate: [AuthGuard], data: {roles: ['COMUM']}},
+  {path: 'dashboardFuncionario', component: InicialFuncionarioComponent,
+   canActivate: [AuthGuard], data: {roles: ['COMUM']}},
+  {path: 'meusDados', component: MeusDadosComponent,
+   canActivate: [AuthGuard], data: {roles: ['COMUM', 'GESTOR']}},
+  {path: 'dashboardGestor', component: InicialGestorComponent,
+   canActivate: [AuthGuard], data: {roles: ['GESTOR']}},
+  {path: 'apontamentos', component: ApontamentosGestorComponent,
+    canActivate: [AuthGuard], data: {roles: ['GESTOR']}},
+  {path: 'detalhesApontamento/:id', component: DetalhesApontamentoComponent,
+   canActivate: [AuthGuard], data: {roles: ['GESTOR', 'COMUM']}},
+  {path: 'cadastroFuncionario', component: CadastroFuncionarioComponent,
+  canActivate: [AuthGuard], data: {roles: ['GESTOR']}},
+  {path: 'relatorioFuncionario', component: RelatorioFuncionariosComponent,
+   canActivate: [AuthGuard], data: {roles: ['GESTOR']}},
+  {path: 'relatorioAtividades', component: RelatorioAtividadesComponent,
+  canActivate: [AuthGuard], data: {roles: ['GESTOR']}},
+  {path: 'detalhesFuncionario/:id', component: DetalhesFuncionarioComponent,
+   canActivate: [AuthGuard], data: {roles: ['GESTOR']}}
 ];
 
 @NgModule({

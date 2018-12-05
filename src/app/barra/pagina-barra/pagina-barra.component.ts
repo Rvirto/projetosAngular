@@ -49,6 +49,7 @@ public atividade: Atividades = new Atividades();
   public fazerLogout(): void {
     this.logoutservice.logout()
     .then(() => {
+      this.loginService.limparAccesToken();
       this.toastyService.clearAll();
       this.toastyService.success('Obrigado pelo acesso! Volte sempre!');
       this.route.navigate(['/']);

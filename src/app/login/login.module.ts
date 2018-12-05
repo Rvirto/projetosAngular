@@ -10,6 +10,7 @@ import { LogoutService } from './shared/service/logout.service';
 import { HttpModule, RequestOptions, Http } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import {PasswordModule} from 'primeng/components/password/password';
+import { AuthGuard } from './auth.guard';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -30,6 +31,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   providers: [
     LoginService,
     LogoutService,
+    AuthGuard,
   {
     provide: AuthHttp,
     useFactory: authHttpServiceFactory,

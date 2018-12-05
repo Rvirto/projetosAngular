@@ -14,9 +14,11 @@ export class InicialGestorComponent implements OnInit {
   public descricoes: string[] = [];
   public valores: number[] = [];
   public dados: any;
+  public dadosT: any;
   public apontamentos = [];
   public somaTotal: number;
   public contador: number;
+  public totalHoras: number[] = [];
 
   constructor(
     private funcionarioService: FuncionarioService,
@@ -34,6 +36,7 @@ export class InicialGestorComponent implements OnInit {
       this.atividades = response;
       for (let i = 0; i < this.atividades.length; i++) {
         this.descricoes.push(this.atividades[i].descricao);
+        this.totalHoras.push(this.atividades[i].totalHoras);
       }
     })
     .catch(() => {
@@ -52,6 +55,7 @@ export class InicialGestorComponent implements OnInit {
     })
     .then(() => {
       this.montarGrafico();
+      this.montarGraficoTotal();
     })
     .catch(() => {
       this.toastyService.clearAll();
@@ -89,17 +93,47 @@ export class InicialGestorComponent implements OnInit {
                     '#FF6384',
                     '#36A2EB',
                     '#FFCE56',
-                    'white',
-                    'black',
-                    'fuchsia'
+                    'green',
+                    'red',
+                    'fuchsia',
+                    '#993399'
                 ],
                 hoverBackgroundColor: [
                     '#FF6384',
                     '#36A2EB',
                     '#FFCE56',
-                    'white',
-                    'black',
-                    'fuchsia'
+                    'green',
+                    'red',
+                    'fuchsia',
+                    '#993399'
+                ]
+            }]
+        };
+    }
+
+    public montarGraficoTotal(): void {
+      this.dadosT = {
+        labels: this.descricoes,
+        datasets: [
+            {
+                data: this.totalHoras,
+                backgroundColor: [
+                    '#FF6384',
+                    '#36A2EB',
+                    '#FFCE56',
+                    'green',
+                    'red',
+                    'fuchsia',
+                    '#993399'
+                ],
+                hoverBackgroundColor: [
+                    '#FF6384',
+                    '#36A2EB',
+                    '#FFCE56',
+                    'green',
+                    'red',
+                    'fuchsia',
+                    '#993399'
                 ]
             }]
         };

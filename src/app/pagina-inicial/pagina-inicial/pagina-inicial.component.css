@@ -1,0 +1,48 @@
+.bloco {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.altura{
+  height: calc(100vh);
+
+}
+.altura1{
+  height: calc(100vh - 56px);
+}
+
+.img1 {
+  background: url(../../../assets/fundo1.png) no-repeat center center fixed;
+}
+
+.cartao{
+  width:40%;
+  height: 200px;
+  background-color: rgb(255, 250, 250);
+  padding:15px;
+  overflow-y: auto;
+}
+
+.texto-cartao{
+  width: 100%;
+  height: 70%;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: rgb(100, 100, 100);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.titulo-cartao{
+  text-transform: uppercase;
+  font-family: Georgia, 'Times New Roman', Times;
+  text-align: center;
+}

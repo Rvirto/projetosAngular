@@ -9,6 +9,7 @@
           <label><h5>Funcionário</h5></label>
           <input pInputText type="text" name="atividade"
           [(ngModel)]="apontamento.funcionario.nome">
+
         </div>
 
         <div class="ui-sm-12 ui-md-6 ui-g-6 ui-fluid">
@@ -20,13 +21,13 @@
           <div class="ui-sm-12 ui-md-4 ui-g-4 ui-fluid">
               <label><h5>Data/Hora de Início</h5></label>
               <input pInputText type="text" name="datainicio"
-              [(ngModel)]="apontamento.dataInicio">
+              [ngModel]="apontamento.dataInicio | date:'dd/MM/yyyy HH:mm:ss'">
             </div>
 
             <div class="ui-sm-12 ui-md-4 ui-g-4 ui-fluid">
                 <label><h5>Data/Hora de Finalização</h5></label>
                 <input pInputText type="text" name="datafim"
-                [(ngModel)]="apontamento.dataFim">
+                [ngModel]="apontamento.dataFim | date:'dd/MM/yyyy HH:mm:ss'"/>
               </div>
 
               <div class="ui-sm-12 ui-md-3 ui-g-3 ui-fluid">

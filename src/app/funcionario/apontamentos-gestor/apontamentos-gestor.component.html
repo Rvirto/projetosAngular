@@ -20,8 +20,16 @@
         </ng-template>
       </p-column>
     <p-column styleClass="tabela-funcionario-atividade" field="atividade.descricao" header="Atividade Desenvolvida"></p-column>
-    <p-column styleClass="tabela-funcionario-data" field="dataInicio" header="Data de Início"></p-column>
-    <p-column styleClass="tabela-funcionario-data" field="dataFim" header="Data de Fim"></p-column>
+    <p-column styleClass="tabela-funcionario-data" header="Data de Início">
+        <ng-template pTemplate="body" let-apon="rowData">
+            <span>{{apon.dataInicio | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+        </ng-template>
+    </p-column>
+    <p-column styleClass="tabela-funcionario-data" header="Data de Fim">
+        <ng-template pTemplate="body" let-apont="rowData">
+            <span>{{apont.dataFim | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+        </ng-template>
+    </p-column>
     </p-dataTable>
 
   </div>

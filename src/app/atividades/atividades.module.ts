@@ -5,12 +5,14 @@ import { CommonModule } from '@angular/common';
 import { InicialAtividadesComponent } from './inicial-atividades/inicial-atividades.component';
 import { AtividadeService } from './shared/service/atividade.service';
 import { RelatorioAtividadesComponent } from './relatorio-atividades/relatorio-atividades.component';
+import { DataTableModule } from 'primeng/components/datatable/datatable';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    DataTableModule
   ],
   declarations: [InicialAtividadesComponent, RelatorioAtividadesComponent],
   exports: [InicialAtividadesComponent, RelatorioAtividadesComponent],

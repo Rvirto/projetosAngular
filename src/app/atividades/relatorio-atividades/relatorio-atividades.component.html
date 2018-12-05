@@ -1,3 +1,21 @@
-<p>
-  relatorio-atividades works!
-</p>
+<div class="container">
+
+  <div class="ui-g-12">
+    <h2 class="text-center"><b>Relatório de Atividades</b></h2>
+  </div>
+
+  <div class="ui-g-12">
+      <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+          <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+          <input #fa type="text" pInputText size="20" placeholder="Busca..." maxlength="10">
+      </div>
+    <p-dataTable [value]="atividades" [paginator]="true" [rows]="8"
+    [responsive]="true" emptyMessage="Nenhuma Atividade Encontrada" [globalFilter]="fa"
+    [rowsPerPageOptions]="['8','15', '20', '30', '50', '100']">
+    <p-column styleClass="tabela-funcionario-atividade" field="descricao" header="Atividade Desenvolvida"></p-column>
+    <p-column styleClass="tabela-funcionario-data" field="totalHoras" header="Total de Horas">
+    </p-column>
+    </p-dataTable>
+
+  </div>
+</div>

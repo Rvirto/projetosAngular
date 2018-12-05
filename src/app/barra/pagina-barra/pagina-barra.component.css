@@ -1,8 +1,13 @@
-.imagem{
-    position: unset;
-    width: 100px;
-    height:40px;
-    background:url(../../../assets/LogoTotvs.png);
-    background-size: cover;
-    margin-right:15px;
+.flex-button{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
+
+a {
+  text-decoration: none !important;
+}
+
+

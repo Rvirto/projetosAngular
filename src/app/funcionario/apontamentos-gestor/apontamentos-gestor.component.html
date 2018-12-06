@@ -5,6 +5,19 @@
     </div>
 
     <div class="ui-g-12">
+      <label>Busca entre Datas</label>
+      <p-calendar dateFormat="dd/mm/yy" [inputStyle]="{ width: '95px' }"
+      [(ngModel)]="dataInicio" name="dataInicial"></p-calendar>
+
+      <label>Até</label>
+      <p-calendar dateFormat="dd/mm/yy" [inputStyle]="{ width: '95px' }"
+      [(ngModel)]="dataFim" name="dataFinal"></p-calendar>
+      <button class="btn btn-primary" style="margin-left: 5px;"
+      (click)="buscaFiltro()">
+        <i class="fa fa-search"></i> Pesquisar</button>
+    </div>
+
+    <div class="ui-g-12">
       <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
           <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
           <input #fa type="text" pInputText size="20" placeholder="Busca..." maxlength="10">

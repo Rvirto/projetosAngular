@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class ApontamentosGestorComponent implements OnInit {
 
   public apontamentos = [];
+  public dataInicio: Date;
+  public dataFim: Date;
 
   constructor(
     private funcionarioService: FuncionarioService,
@@ -20,7 +22,7 @@ export class ApontamentosGestorComponent implements OnInit {
     this.buscarTodosApontamentos();
   }
 
-  public buscarTodosApontamentos() {
+  public buscarTodosApontamentos(): void {
     this.funcionarioService.buscarTodosApontamentos()
     .then(response => {
       this.apontamentos = response;
@@ -28,6 +30,18 @@ export class ApontamentosGestorComponent implements OnInit {
     .catch(() => {
       this.toastyService.clearAll();
       this.toastyService.error('Problemas técnicos ao fazer a busca dos Apontamentos!');
+    });
+  }
+
+  public buscaFiltro(): void {
+    this.funcionarioService
+    .buscaPersonalizada({dataInicio: this.dataInicio, dataFim: this.dataFim})
+    .then(response => {
+      this.apontamentos = response;
+    })
+    .catch(() => {
+      this.toastyService.clearAll();
+      this.toastyService.error('Problemas técnicos ao fazer filtragem dos Dados!');
     });
   }
 }

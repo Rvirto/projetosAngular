@@ -20,6 +20,7 @@ import {DropdownModule} from 'primeng/components/dropdown/dropdown';
 import { DialogModule } from 'primeng/components/dialog/dialog';
 import { RelatorioFuncionariosComponent } from './relatorio-funcionarios/relatorio-funcionarios.component';
 import { DetalhesFuncionarioComponent } from './detalhes-funcionario/detalhes-funcionario.component';
+import {CalendarModule} from 'primeng/components/calendar/calendar';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { DetalhesFuncionarioComponent } from './detalhes-funcionario/detalhes-fu
     InputTextModule,
     PasswordModule,
     DropdownModule,
-    DialogModule
+    DialogModule,
+    CalendarModule
   ],
   declarations: [InicialFuncionarioComponent, MeusApontamentosComponent,
      MeusDadosComponent, InicialGestorComponent, ApontamentosGestorComponent,

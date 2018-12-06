@@ -2,6 +2,7 @@ import { ToastyService } from 'ng2-toasty';
 import { FuncionarioService } from './../shared/service/funcionario.service';
 import { Funcionario } from './../shared/model/Funcionario.model';
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../login/shared/service/login.service';
 
 @Component({
   selector: 'app-relatorio-funcionarios',
@@ -14,7 +15,8 @@ export class RelatorioFuncionariosComponent implements OnInit {
 
   constructor(
     private funcionarioService: FuncionarioService,
-    private toastyService: ToastyService
+    private toastyService: ToastyService,
+    private loginService: LoginService
   ) { }
 
   ngOnInit() {

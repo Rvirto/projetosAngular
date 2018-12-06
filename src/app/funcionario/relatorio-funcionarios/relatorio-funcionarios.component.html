@@ -13,9 +13,10 @@
     [responsive]="true" emptyMessage="Nenhum Funcionário Encontrado" [globalFilter]="fa"
     [rowsPerPageOptions]="['8','15', '20', '30', '50', '100']">
     <p-column styleClass="tabela-funcionario-acao" header="Ações">
-        <ng-template pTemplate="body" let-apontamento="rowData">
+        <ng-template pTemplate="body" let-func="rowData">
             <button pTooltip="Detalhes do Funcionário" class="btn btn-info"
-            [routerLink]="['/detalhesFuncionario', apontamento.id]"
+            [routerLink]="['/detalhesFuncionario', func.id]"
+            *ngIf="!(func.id == loginService.jwtPayLoad.idFun)"
             tooltipPosition="top"><i class="fa fa-list"></i></button>
         </ng-template>
       </p-column>

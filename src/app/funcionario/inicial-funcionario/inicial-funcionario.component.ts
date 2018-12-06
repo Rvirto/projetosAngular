@@ -89,22 +89,22 @@ export class InicialFuncionarioComponent implements OnInit {
             {
                 data: this.valores,
                 backgroundColor: [
-                  '#FF6384',
+                  '#993399',
                   '#36A2EB',
                   '#FFCE56',
                   'green',
                   'red',
                   'fuchsia',
-                  '#993399'
+                  '#FF6384'
                 ],
                 hoverBackgroundColor: [
-                  '#FF6384',
+                  '#993399',
                   '#36A2EB',
                   '#FFCE56',
                   'green',
                   'red',
                   'fuchsia',
-                  '#993399'
+                  '#FF6384'
                 ]
             }]
         };

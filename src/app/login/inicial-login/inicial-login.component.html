@@ -1,16 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 col-sm-4 offset-sm-4">
+    <div class="col-12 col-sm-6 offset-sm-3">
       <br><br>
-
       <div class="card">
+        <div class="logo-box">
+            <img src="../../../assets/totvsLogoPreto.png" class="img-fluid">
+        </div>
         <form class="form" #formLogin="ngForm" autocomplete="off">
           <div class="form-group">
-            <label class="text-white">Nome:</label><br>
+            <label>Nome:</label><br>
             <input type="text" #emai name="emailAcesso" [(ngModel)]="email" required class="form-control">
           </div>
           <div class="form-group">
-            <label class="text-white">Senha:</label><br>
+            <label>Senha:</label><br>
             <input type="password" #senh name="senhaAcesso" [(ngModel)]="senha" required class="form-control">
           </div>
         </form>

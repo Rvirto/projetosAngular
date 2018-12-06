@@ -7,32 +7,32 @@
   <div class="ui-g-12">
       <div class="ui-sm-12 ui-md-6 ui-g-6 ui-fluid">
           <label><h5>Funcionário</h5></label>
-          <input pInputText type="text" name="atividade"
+          <input pInputText type="text" name="atividade" readonly
           [(ngModel)]="apontamento.funcionario.nome">
 
         </div>
 
         <div class="ui-sm-12 ui-md-6 ui-g-6 ui-fluid">
             <label><h5>Atividade</h5></label>
-            <input pInputText type="text" name="atividade"
+            <input pInputText type="text" name="atividade" readonly
             [(ngModel)]="apontamento.atividade.descricao">
           </div>
 
           <div class="ui-sm-12 ui-md-4 ui-g-4 ui-fluid">
               <label><h5>Data/Hora de Início</h5></label>
-              <input pInputText type="text" name="datainicio"
+              <input pInputText type="text" name="datainicio" readonly
               [ngModel]="apontamento.dataInicio | date:'dd/MM/yyyy HH:mm:ss'">
             </div>
 
             <div class="ui-sm-12 ui-md-4 ui-g-4 ui-fluid">
                 <label><h5>Data/Hora de Finalização</h5></label>
-                <input pInputText type="text" name="datafim"
+                <input pInputText type="text" name="datafim" readonly
                 [ngModel]="apontamento.dataFim | date:'dd/MM/yyyy HH:mm:ss'"/>
               </div>
 
               <div class="ui-sm-12 ui-md-3 ui-g-3 ui-fluid">
                   <label><h5>Quantidade de Horas</h5></label>
-                  <input pInputText type="text" name="quantidade"
+                  <input pInputText type="text" name="quantidade" readonly
                   [(ngModel)]="apontamento.quantidadeHoras">
                 </div>
 
